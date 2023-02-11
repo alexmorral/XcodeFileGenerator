@@ -11,6 +11,9 @@
 		8B51D383299813D000B18115 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51D382299813D000B18115 /* ContentView.swift */; };
 		8B51D385299813D100B18115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B51D384299813D100B18115 /* Assets.xcassets */; };
 		8B51D388299813D100B18115 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B51D387299813D100B18115 /* Preview Assets.xcassets */; };
+		8B51D3902998262500B18115 /* MVVMGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51D38F2998262400B18115 /* MVVMGenerator.swift */; };
+		8B51D39329982A1300B18115 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51D39229982A1300B18115 /* ContentViewModel.swift */; };
+		8B51D395299833ED00B18115 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51D394299833ED00B18115 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +23,9 @@
 		8B51D384299813D100B18115 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B51D387299813D100B18115 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8B51D389299813D100B18115 /* FileGenerator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FileGenerator.entitlements; sourceTree = "<group>"; };
+		8B51D38F2998262400B18115 /* MVVMGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMGenerator.swift; sourceTree = "<group>"; };
+		8B51D39229982A1300B18115 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		8B51D394299833ED00B18115 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,9 +60,12 @@
 			children = (
 				8B51D380299813D000B18115 /* FileGeneratorApp.swift */,
 				8B51D382299813D000B18115 /* ContentView.swift */,
+				8B51D39229982A1300B18115 /* ContentViewModel.swift */,
+				8B51D3912998262A00B18115 /* Generators */,
 				8B51D384299813D100B18115 /* Assets.xcassets */,
 				8B51D389299813D100B18115 /* FileGenerator.entitlements */,
 				8B51D386299813D100B18115 /* Preview Content */,
+				8B51D394299833ED00B18115 /* AppDelegate.swift */,
 			);
 			path = FileGenerator;
 			sourceTree = "<group>";
@@ -67,6 +76,14 @@
 				8B51D387299813D100B18115 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8B51D3912998262A00B18115 /* Generators */ = {
+			isa = PBXGroup;
+			children = (
+				8B51D38F2998262400B18115 /* MVVMGenerator.swift */,
+			);
+			path = Generators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,8 +156,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B51D39329982A1300B18115 /* ContentViewModel.swift in Sources */,
 				8B51D383299813D000B18115 /* ContentView.swift in Sources */,
 				8B51D381299813D000B18115 /* FileGeneratorApp.swift in Sources */,
+				8B51D395299833ED00B18115 /* AppDelegate.swift in Sources */,
+				8B51D3902998262500B18115 /* MVVMGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +285,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = FileGenerator/FileGenerator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -292,6 +313,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = FileGenerator/FileGenerator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
