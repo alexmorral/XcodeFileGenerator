@@ -7,34 +7,10 @@
 
 import SwiftUI
 
-enum Screen: String, CaseIterable {
-    case mvvm, uiComponent
-}
-
 struct ContentView: View {
     @StateObject private var viewModel = ContentViewModel()
-    @State private var selection: Screen = Screen.mvvm
 
     var body: some View {
-        NavigationSplitView {
-            List(selection: $selection) {
-                NavigationLink(value: Screen.mvvm) {
-                    Text("MVVM")
-                }
-                NavigationLink(value: Screen.uiComponent) {
-                    Text("UI Component")
-                }
-            }
-        } detail: {
-            switch selection {
-            case .mvvm: mvvmView
-            case .uiComponent: uiComponentView
-            }
-        }
-    }
-
-    @ViewBuilder
-    var mvvmView: some View {
         VStack {
             HStack {
                 Text("Organization Name:")
@@ -54,12 +30,24 @@ struct ContentView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 TextField("Template Name", text: $viewModel.templateName)
             }
+
+            Picker("Type of files", selection: $viewModel.generatorSelected) {
+                ForEach(GeneratorType.allCases, id: \.self) {
+                    Text($0.title)
+                }
+            }
+            .pickerStyle(.segmented)
+            .padding(.vertical)
+
             VStack(spacing: 12) {
-                Text("The following files will be generated in your Desktop:")
+                Text("The following files will be generated in your Downloads folder:")
                     .frame(maxWidth: .infinity, alignment: .leading)
                 VStack(alignment: .leading) {
-                    ForEach(MVVMTemplate.allCases) { mvvmTemplate in
-                        Text(mvvmTemplate.templateFileName.replacingOccurrences(of: MVVMGenerator.templateString, with: viewModel.templateName))
+                    ForEach(viewModel.generatorSelected.fileNames, id: \.self) { fileName in
+                        Text(fileName.replacingOccurrences(
+                            of: FileGenerator<MVVMTemplate>.templateString,
+                            with: viewModel.templateName)
+                        )
                     }
                 }
 
@@ -69,20 +57,13 @@ struct ContentView: View {
             Text(viewModel.statusString)
                 .foregroundColor(viewModel.viewStatus == .error ? .red : .blue)
 
-            Button(action: viewModel.generateMVVMTapped) {
-                Text("Generate")
+            Button(action: viewModel.generateButtonTapped) {
+                Text("Generate files")
             }
             .padding()
         }
         .padding()
-    }
-
-    @ViewBuilder
-    var uiComponentView: some View {
-        Text("UI Component")
-        Button(action: viewModel.generateUIComponentTapped) {
-            Text("Generate")
-        }
+        .fixedSize()
     }
 }
 

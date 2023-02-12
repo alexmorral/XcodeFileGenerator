@@ -10,12 +10,15 @@ import SwiftUI
 class ContentViewModel: ObservableObject {
     @Published var organizationName: String
     @Published var appName: String
-    @Published var templateName: String = MVVMGenerator.templateString
+    @Published var templateName: String = FileGenerator<MVVMTemplate>.templateString
+
+    @Published var generatorSelected: GeneratorType = .mvvm
 
     enum ViewStatus {
         case error
         case idle
     }
+
     @Published var viewStatus = ViewStatus.idle
     @Published var statusString: String = ""
 
@@ -38,11 +41,11 @@ class ContentViewModel: ObservableObject {
         appName = UserDefaults.standard.value(forKey: "app_name_key") as? String ?? ""
     }
 
-    func generateMVVMTapped() {
+    func generateButtonTapped() {
         do {
             statusString = ""
-            try validateMVVM()
-            let storePath = try MVVMGenerator().generate(
+            try validateFields()
+            let storePath = try generatorSelected.generator.generate(
                 organizationName: organizationName,
                 appName: appName,
                 templateName: templateName
@@ -56,19 +59,15 @@ class ContentViewModel: ObservableObject {
         }
     }
 
-    func generateUIComponentTapped() {
-
-    }
-
     private func storeNamesToUserDefaults() {
         UserDefaults.standard.set(organizationName, forKey: "organization_name_key")
         UserDefaults.standard.set(appName, forKey: "app_name_key")
         UserDefaults.standard.synchronize()
     }
 
-    private func validateMVVM() throws {
+    private func validateFields() throws {
         if organizationName.isEmpty { throw ViewError.organizationNameEmpty }
         if appName.isEmpty { throw ViewError.appNameEmpty }
-        if templateName == MVVMGenerator.templateString { throw ViewError.templateNameInvalid }
+        if templateName == FileGenerator<MVVMTemplate>.templateString { throw ViewError.templateNameInvalid }
     }
 }

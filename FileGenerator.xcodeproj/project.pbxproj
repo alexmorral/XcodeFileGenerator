@@ -7,23 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B3691A92999076300381B67 /* UIComponentTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3691A82999076300381B67 /* UIComponentTemplate.swift */; };
+		8B3691AB29990CBF00381B67 /* FileGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3691AA29990CBF00381B67 /* FileGenerator.swift */; };
+		8B3691C9299918F300381B67 /* GeneratorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3691C8299918F300381B67 /* GeneratorType.swift */; };
+		8B3691CB2999190E00381B67 /* FileTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3691CA2999190E00381B67 /* FileTemplate.swift */; };
 		8B51D381299813D000B18115 /* FileGeneratorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51D380299813D000B18115 /* FileGeneratorApp.swift */; };
 		8B51D383299813D000B18115 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51D382299813D000B18115 /* ContentView.swift */; };
 		8B51D385299813D100B18115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B51D384299813D100B18115 /* Assets.xcassets */; };
 		8B51D388299813D100B18115 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B51D387299813D100B18115 /* Preview Assets.xcassets */; };
-		8B51D3902998262500B18115 /* MVVMGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51D38F2998262400B18115 /* MVVMGenerator.swift */; };
+		8B51D3902998262500B18115 /* MVVMTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51D38F2998262400B18115 /* MVVMTemplate.swift */; };
 		8B51D39329982A1300B18115 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51D39229982A1300B18115 /* ContentViewModel.swift */; };
 		8B51D395299833ED00B18115 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51D394299833ED00B18115 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B3691A82999076300381B67 /* UIComponentTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIComponentTemplate.swift; sourceTree = "<group>"; };
+		8B3691AA29990CBF00381B67 /* FileGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileGenerator.swift; sourceTree = "<group>"; };
+		8B3691C8299918F300381B67 /* GeneratorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorType.swift; sourceTree = "<group>"; };
+		8B3691CA2999190E00381B67 /* FileTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTemplate.swift; sourceTree = "<group>"; };
 		8B51D37D299813D000B18115 /* FileGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FileGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B51D380299813D000B18115 /* FileGeneratorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileGeneratorApp.swift; sourceTree = "<group>"; };
 		8B51D382299813D000B18115 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8B51D384299813D100B18115 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B51D387299813D100B18115 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8B51D389299813D100B18115 /* FileGenerator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FileGenerator.entitlements; sourceTree = "<group>"; };
-		8B51D38F2998262400B18115 /* MVVMGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMGenerator.swift; sourceTree = "<group>"; };
+		8B51D38F2998262400B18115 /* MVVMTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMTemplate.swift; sourceTree = "<group>"; };
 		8B51D39229982A1300B18115 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		8B51D394299833ED00B18115 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -39,6 +47,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B3691AC2999120B00381B67 /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				8B3691CA2999190E00381B67 /* FileTemplate.swift */,
+				8B51D38F2998262400B18115 /* MVVMTemplate.swift */,
+				8B3691A82999076300381B67 /* UIComponentTemplate.swift */,
+			);
+			path = Templates;
+			sourceTree = "<group>";
+		};
 		8B51D374299813D000B18115 = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +76,14 @@
 		8B51D37F299813D000B18115 /* FileGenerator */ = {
 			isa = PBXGroup;
 			children = (
+				8B51D394299833ED00B18115 /* AppDelegate.swift */,
 				8B51D380299813D000B18115 /* FileGeneratorApp.swift */,
 				8B51D382299813D000B18115 /* ContentView.swift */,
 				8B51D39229982A1300B18115 /* ContentViewModel.swift */,
-				8B51D3912998262A00B18115 /* Generators */,
+				8B51D3912998262A00B18115 /* Generator */,
 				8B51D384299813D100B18115 /* Assets.xcassets */,
 				8B51D389299813D100B18115 /* FileGenerator.entitlements */,
 				8B51D386299813D100B18115 /* Preview Content */,
-				8B51D394299833ED00B18115 /* AppDelegate.swift */,
 			);
 			path = FileGenerator;
 			sourceTree = "<group>";
@@ -78,12 +96,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		8B51D3912998262A00B18115 /* Generators */ = {
+		8B51D3912998262A00B18115 /* Generator */ = {
 			isa = PBXGroup;
 			children = (
-				8B51D38F2998262400B18115 /* MVVMGenerator.swift */,
+				8B3691C8299918F300381B67 /* GeneratorType.swift */,
+				8B3691AA29990CBF00381B67 /* FileGenerator.swift */,
+				8B3691AC2999120B00381B67 /* Templates */,
 			);
-			path = Generators;
+			path = Generator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,9 +178,13 @@
 			files = (
 				8B51D39329982A1300B18115 /* ContentViewModel.swift in Sources */,
 				8B51D383299813D000B18115 /* ContentView.swift in Sources */,
+				8B3691AB29990CBF00381B67 /* FileGenerator.swift in Sources */,
 				8B51D381299813D000B18115 /* FileGeneratorApp.swift in Sources */,
+				8B3691A92999076300381B67 /* UIComponentTemplate.swift in Sources */,
 				8B51D395299833ED00B18115 /* AppDelegate.swift in Sources */,
-				8B51D3902998262500B18115 /* MVVMGenerator.swift in Sources */,
+				8B51D3902998262500B18115 /* MVVMTemplate.swift in Sources */,
+				8B3691CB2999190E00381B67 /* FileTemplate.swift in Sources */,
+				8B3691C9299918F300381B67 /* GeneratorType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

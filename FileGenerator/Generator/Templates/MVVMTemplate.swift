@@ -7,40 +7,7 @@
 
 import Foundation
 
-struct MVVMGenerator {
-    static let templateString = "__TEMPLATE__"
-    static let appTemplateString = "__APP__"
-    static let organizationNameTemplateString = "__ORG__"
-
-    func generate(
-        organizationName: String,
-        appName: String,
-        templateName: String
-    ) throws -> String {
-        let downloadsURL = try storeDirectory(templateName: templateName)
-        try FileManager.default.createDirectory(atPath: downloadsURL.path, withIntermediateDirectories: true, attributes: nil)
-        for template in MVVMTemplate.allCases {
-            let fileName = template.templateFileName.replacingOccurrences(of: Self.templateString, with: templateName)
-            let url = downloadsURL.appendingPathComponent(fileName)
-            var content = template.templateContent.replacingOccurrences(of: Self.templateString, with: templateName)
-            content = content.replacingOccurrences(of: Self.appTemplateString, with: appName)
-            content = content.replacingOccurrences(of: Self.organizationNameTemplateString, with: organizationName)
-            try content.write(to: url, atomically: true, encoding: .utf8)
-        }
-        return downloadsURL.path
-    }
-
-    private func storeDirectory(templateName: String) throws -> URL {
-        try FileManager.default.url(
-            for: .downloadsDirectory,
-            in: .userDomainMask,
-            appropriateFor: nil,
-            create: true
-        ).appendingPathComponent(templateName)
-    }
-}
-
-enum MVVMTemplate: String, Identifiable, CaseIterable {
+enum MVVMTemplate: String, FileTemplate {
     case configurator
     case router
     case viewModel
