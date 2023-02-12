@@ -2,6 +2,8 @@
 
 Used to automate the creation of the files.
 
+![Picture of the File generator UI](docs/images/filegenerator.png "File Generator UI")
+
 ### MVVM Files
 
 The template `MVVMTemplate` contains the template to create the following files:
