@@ -66,10 +66,10 @@ extension UIComponentTemplate {
 
     struct __TEMPLATE___Previews: PreviewProvider {
         public static var previewItems: [__TEMPLATE__] = [
-                __TEMPLATE__(
-                    style: .default,
-                    content: .init()
-                )
+            __TEMPLATE__(
+                style: .default,
+                content: .init()
+            )
         ]
 
         public static var previews: some View {
